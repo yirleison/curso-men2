@@ -29,7 +29,6 @@ function getArtist(req, res) {
 			}
 		}
 	});
-
 }
 
 function saveArtist(req, res) {
