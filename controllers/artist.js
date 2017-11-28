@@ -133,7 +133,7 @@ function deleteArtis(req, res) {
 			}
 
 			else {
-				console.log()
+        
 				res.status(404).send({ artistRemoved });
 				Album.find({ artist: artistRemoved._id }).remove((err, albumRemove) => {
 
@@ -167,16 +167,12 @@ function deleteArtis(req, res) {
 								}
 
 							});
-
 						}
 					}
-
-
 				});
 			}
 		}
 	});
-
 }
 
 module.exports = {

@@ -184,8 +184,6 @@ function getImageFile(req, res){
 			res.status(404).send({ message: 'No se ha encontrado la imagen' });
 		}
 	});
-	
-
 }
 
 module.exports = {

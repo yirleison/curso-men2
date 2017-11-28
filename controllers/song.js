@@ -1,4 +1,5 @@
 
+
 'use strict'
 var path = require('path');
 var fs = require('fs');
@@ -38,17 +39,17 @@ function getSongs(req, res) {
 	}
 
 	find.populate({
-		path : 'album',
-		populate : {
-			path : 'artist',
-			model : 'Artist'
+		path: 'album',
+		populate: {
+			path: 'artist',
+			model: 'Artist'
 		}
-	}).exec((err,songs)=>{
-		if(err){
+	}).exec((err, songs) => {
+		if (err) {
 			res.status(500).send({ message: 'Error en la peticion' });
 		}
-		else{
-			if(!songs){
+		else {
+			if (!songs) {
 				res.status(404).send({ message: 'No existen canciones' });
 			}
 			else {
@@ -58,16 +59,16 @@ function getSongs(req, res) {
 	});
 }
 
-function updateSong(req,res){
+function updateSong(req, res) {
 	var sonId = req.params.id;
 	var update = req.body;
 
-	Song.findByIdAndUpdate(sonId,update, (err, songUpdate)=>{
-		if(err){
+	Song.findByIdAndUpdate(sonId, update, (err, songUpdate) => {
+		if (err) {
 			res.status(500).send({ message: 'Error en la peticion' });
 		}
-		else{
-			if(!songUpdate){
+		else {
+			if (!songUpdate) {
 				res.status(404).send({ message: 'No se ha actualizado la cancion' });
 			}
 			else {
@@ -77,19 +78,19 @@ function updateSong(req,res){
 	});
 }
 
-function deleteSong(req, res){
+function deleteSong(req, res) {
 	var songId = req.params.id;
 
-	Song.findByIdAndRemove(songId, (err, songRemove)=>{
-		if(err){
-			res.status(500).send({ message : 'Error en la peticion' });
+	Song.findByIdAndRemove(songId, (err, songRemove) => {
+		if (err) {
+			res.status(500).send({ message: 'Error en la peticion' });
 		}
-		else{
-			if(!songRemove){
-				res.status(404).send({ message : 'No se ha podido eliminar la cancion' });
+		else {
+			if (!songRemove) {
+				res.status(404).send({ message: 'No se ha podido eliminar la cancion' });
 			}
 			else {
-				res.status(200).send({ song : songRemove });
+				res.status(200).send({ song: songRemove });
 			}
 		}
 	});
@@ -127,3 +128,4 @@ module.exports = {
 	updateSong,
 	deleteSong
 }
+
