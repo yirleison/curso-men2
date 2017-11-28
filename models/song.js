@@ -7,7 +7,7 @@ var Schema = mongoose.Schema; // Permite crear un objeto de tipo Squema...
 var Songchema = Schema({
     number: String,
     name: String,
-    duration: Number,
+    duration: String,
     file: String,
     album: {type: Schema.ObjectId, ref: 'Album'}
 });
