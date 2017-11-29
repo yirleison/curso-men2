@@ -154,7 +154,7 @@ function uploadImage(req, res) {
 				}
 
 				else {
-					res.status(200).send({user:userUpdate})
+					res.status(200).send({image: file_name, user:userUpdate})
 				}
 
 			});
