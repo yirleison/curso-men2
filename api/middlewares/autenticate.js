@@ -13,10 +13,10 @@ exports.ensuerAuth = function(req, res, next) {
 	else {
 		//Con replace quito las posibles comillas que me puedan llegar en el string token..
 		var token = req.headers.authorization.replace(/['"]+/g, '');
-
+		
 		try {
 			var payload = jwt.decode(token, secret);
-
+			
 			if(payload.exp <= moment().unix()) {
 				return res.status(401).send({message: 'El token ha expirado'});
 			}
@@ -31,5 +31,4 @@ exports.ensuerAuth = function(req, res, next) {
 	}
 	// con next me salgo de la función...
 	next();
-
 };

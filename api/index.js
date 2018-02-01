@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 
 var app = require('./app');
 // En caso tal que tengamos configurado el puerto en las variables de entorno o si no || lo configuramos aqui..
-var port = process.env.PORT || 3981; 
+var port = process.env.PORT || 5984; 
 
 mongoose.connect('mongodb://localhost:27017/curso_mean2',(err, res)=>{
 
